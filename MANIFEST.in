@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include zekasaweb *.css
+recursive-include zekasaweb *.csv
+recursive-include zekasaweb *.html
+recursive-include zekasaweb *.ico
+recursive-include zekasaweb *.js
+recursive-include zekasaweb *.json
+recursive-include zekasaweb *.md
+recursive-include zekasaweb *.png
+recursive-include zekasaweb *.py
+recursive-include zekasaweb *.svg
+recursive-include zekasaweb *.txt
+recursive-exclude zekasaweb *.pyc
