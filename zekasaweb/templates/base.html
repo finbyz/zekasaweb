@@ -146,22 +146,23 @@
         }
         window.dev_server = {{ dev_server }};
         window.socketio_port = {{ frappe.socketio_port }};
+        window.show_language_picker = {{ show_language_picker or 'false' }};
+		    window.is_chat_enabled = {{ chat_enable }};
     </script>
     <script crossorigin="anonymous" type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js" ></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXX"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXX"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
         gtag('config', 'G-xxxx');
-      </script>
+      </script> -->
   </head>
 
 <body frappe-session-status="{{ 'logged-in' if frappe.session.user != 'Guest' else 'logged-out'}}"
-    data-path="{{ path | e }}" {%- if template and template.endswith('.md') %} frappe-content-type="markdown" {% endif
-    -%}>
+    data-path="{{ path | e }}" {%- if template and template.endswith('.md') %} frappe-content-type="markdown" {% endif -%}>
     {%- block banner -%}
     {% include "templates/includes/banner_extension.html" ignore missing %}
 
@@ -171,7 +172,7 @@
     {%- endblock -%}
     
     {%- block navbar -%}
-    {% include "templates/includes/navbar/noble_nav.html" %}
+    {% include "templates/includes/navbar/zekasa_nav.html" %}
     {%- endblock -%}
 
 
@@ -180,7 +181,7 @@
     {% endblock %}
 
     {%- block footer -%}
-    {% include "templates/includes/footer/noble_footer.html" %}
+    {% include "templates/includes/footer/zekasa_footer.html" %}
     {%- endblock -%}
 
     {% block base_scripts %}
