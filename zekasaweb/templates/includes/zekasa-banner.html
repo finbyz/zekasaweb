@@ -1,0 +1,41 @@
+<!-- {% if image and doctype not in ["Item","Item Group","Job Opening"] %}
+<div style="{% if path == "contact_us"%} background-image: url(/files/smoke-bg.jpg);{% else %} background-image: url(/files/smoke-bg.jpg);{% endif %}" class="banner-allPage">
+    <div>
+        <div class=" banner-allPage-title">
+            <div class="banner-wrapper">
+                <h1 class="t-white "> {{ title }}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+{% else%}
+<div style="{% if title == "Products" or doctype == "Item Group" or path == "all-products"%} background-image: url(/files/smoke-bg.jpg);{% elif doctype == "Web Page"%} background-image: url(/files/background_image_packing.png); {% elif path == "about"%} background-image: url(/files/smoke-bg.jpg);{% else %}background-image: url(/files/smoke-bg.jpg);{% endif %}" class="banner-allPage">
+    <div>
+        <div class=" banner-allPage-title">
+            <div class="banner-wrapper">
+                <h1 class="t-white banner-border"> {{ title }} </h1>
+                <div class="page-breadcrumbs">
+                    {% block breadcrumbs %}
+                    {% include 'templates/includes/breadcrumbs.html' %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %} -->
+
+<div class="banner-allPage position-relative">
+    <!-- <img src="{{image or '/files/bg1.jpg'}}"> -->
+    <img src="/files/bg1.jpg">
+    <canvas class="smoke-canvas smoke-canvas-banner" width="1070" height="722"></canvas>
+    <div class="canvas-text canvas-text-banner">
+        <h1 class="orange-text text-medium banner-title"> {{ title }}</h1>
+        <div class="page-breadcrumbs">
+           
+            {% include 'templates/includes/breadcrumbs.html' %}
+          
+        </div>
+    </div> 
+     
+</div>

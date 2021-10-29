@@ -5,80 +5,78 @@
 
 {% macro main_content() %}
 <div class="page-content-wrapper">
-    <!-- breadcrumbs -->
-    <!-- <div class="page-breadcrumbs">
-        {% block breadcrumbs %}
-        {% include 'templates/includes/breadcrumbs.html' %}
-        {% endblock %}
-    </div> -->
+	<!-- breadcrumbs -->
+	<!-- <div class="page-breadcrumbs">
+		{% block breadcrumbs %}
+			{% include 'templates/includes/breadcrumbs.html' %}
+		{% endblock %}
+	</div> -->
 
-    {% block page_container %}
-    <main>
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center">
-                <!-- <div class="page-header">
-                    {% block header %}{% endblock %}
-                </div> -->
+	{% block page_container %}
+	<main class="{% if not full_width and doctype == 'Web Page'%}container my-4{% endif %}">
+		<div class="d-flex justify-content-between align-items-center">
+			<!-- <div class="page-header">
+				{% block header %}{% endblock %}
+			</div> -->
 
-                {% if self.header_actions() %}
-                <div class="page-header-actions-block">
-                    {% block header_actions %}{% endblock %}
-                </div>
-                {% endif %}
-            </div>
-        </div>
+			{% if self.header_actions() %}
+			<div class="page-header-actions-block">
+				{% block header_actions %}{% endblock %}
+			</div>
+			{% endif %}
+		</div>
 
-
-        <div class="page_content">
-            {% if name != "index" %}
-            {% include "templates/includes/noble-banner.html" %}
+		<div class="page_content">
+            
+			{% if name != "index" %}
+            {% include "templates/includes/zekasa-banner.html" %}
             {% endif %}
             {%- block page_content -%}{%- endblock -%}
-        </div>
-
-
-        {% if (doctype == "Web Page") and (name =="index" or name == "contact") %}
-        {% include "templates/includes/form/contact_us.html" %}
-        {% endif %}
-
-        <!-- {% if doctype == "Web Page" and name=="index" %}
-        <div class="customer">
-            {% include 'www/Customer.html' %}
-        </div>
-        {% endif %} -->
-
-        {% include "templates/includes/form/inquiry_form.html" %}
-
-        <div class="page-footer">
-            {%- block page_footer -%}{%- endblock -%}
-        </div>
-
-    </main>
-    {% endblock %}
+		</div>
+		{% if name == "contact-us" %}
+		{% include "templates/includes/form/contact_us.html" %}
+		{% endif %}
+		<div class="page-footer">
+			{%- block page_footer -%}{%- endblock -%}
+		</div>
+	</main>
+	{% endblock %}
 </div>
 {% endmacro %}
 
-{% macro container_attributes() %}
+{% macro container_attributes() -%}
 id="page-{{ name or route | e }}" data-path="{{ pathname | e }}"
-{%- if page_or_generator=="Generator" %}source-type="Generator" data-doctype="{{ doctype }}"{% endif %}
+{%- if page_or_generator=="Generator" %}source-type="Generator" data-doctype="{{ doctype }}"{%- endif %}
+{%- if source_content_type %}source-content-type="{{ source_content_type }}"{%- endif %}
+{%- endmacro %}
+
+{% macro sidebar() %}
+<div class="sidebar-column col-sm-{{ columns }}">
+	{% block page_sidebar %}
+	{% include "templates/includes/web_sidebar.html" %}
+	{% endblock %}
+</div>
 {% endmacro %}
 
 {% if show_sidebar %}
 <div class="container">
-    <div class="row" {{ container_attributes() }}>
-        <div class="pt-4 col-sm-2 border-right sidebar-column d-none d-sm-block">
-            {% block page_sidebar %}
-            {% include "templates/includes/web_sidebar.html" %}
-            {% endblock %}
-        </div>
-        <div class="col-sm-10 main-column">
-            {{ main_content() }}
-        </div>
-    </div>
+	<div class="row" {{ container_attributes() }}>
+		{%- set columns = sidebar_columns or 2 -%}
+		{%- if not sidebar_right -%}
+		{{ sidebar() }}
+		{%- endif -%}
+		<div class="main-column col-sm-{{ 12 - columns }}">
+			{{ main_content() }}
+		</div>
+		{%- if sidebar_right -%}
+		{{ sidebar() }}
+		{%- endif -%}
+	</div>
 </div>
 {% else %}
 <div {{ container_attributes() }}>
-    {{ main_content() }}
+	{{ main_content() }}
 </div>
 {% endif %}
+
 {% endblock %}

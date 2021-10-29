@@ -8,6 +8,7 @@ app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "info@finbyz.com"
 app_license = "GPL 3.0"
+app_logo_url = "/files/zekasa-black-logo.png"
 
 # Includes in <head>
 # ------------------

@@ -1,0 +1,130 @@
+<style>
+    .contact-form form .input {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #b4b4b4;
+        margin-bottom: 20px;
+        outline: none;
+        border-radius: 3px;
+        padding: 10px;
+    }
+
+    .contact-area {
+        position: relative;
+        height: 90vh;
+        width: 100vw;
+        background-image: url(/files/bg_for_our_values_gray.png);
+    }
+
+    .contact-info {
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+    }
+
+    .contact-form {
+        position: absolute;
+        top: 50%;
+        left: 59%;
+        transform: translate(-50%, -50%);
+        height: 490px;
+        width: 600px;
+        background-color: var(--dark-blue);
+    }
+
+    .contact-info-wrapper {
+        display: grid;
+        grid-template-columns: 185px 185px;
+        column-gap: 10px;
+        row-gap: 10px;
+    }
+
+    .location-details {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .contact-info-details {
+        height: 170px;
+        background-color: #fff;
+    }
+    .contact-info-details-image img {
+        height: 40px;
+    }
+
+    .f-14 {
+        font-size: 14px;
+    }
+
+    .shadow {
+        box-shadow: -1px 25px 25px 0px rgb(0 0 0 / 12%);
+    }
+    .contact-info-details{
+        position: relative;
+    }
+    .contact-info-details::before{
+        content: "";
+        position: absolute;
+        display: block;
+        width: 0.2rem;
+        height: 0px;
+        top: 0;
+        left: 0;
+        background-color: #2A3D7D;;
+        transition: height 0.5s ease;
+    }
+    .contact-info-details:hover::before {
+        height: 100%;
+    }
+  
+</style>
+<section id="contact-area" >
+    <div class="contact-area">
+        <div class="contact-info">
+            <div class="contact-info-wrapper">
+                <div class="contact-info-details p-2 shadow stander-border-radius location-details" >
+                    <div class="d-flex justify-content-center mt-0">
+                        <img src="/files/contact_image.png" style="height:65px; width:65px;"/>
+                    </div>
+                    <div class="contact-info-details-information" >
+                        <h4 class="text-center ">Location</h4>
+                        <p class="text-center f-14">Block No. 651/4217, Ghb Anand Flat Corner, New Bapunagar Police
+                            Station, Ahmedabad-380024, Gujarat, India</p>
+                    </div>
+                </div>
+                <div class="contact-info-details p-2 shadow stander-border-radius" >
+                    <div class="d-flex justify-content-center mt-0" >
+                        <img src="/files/contact_image.png" style="height:65px; width:65px;"/>
+                    </div>
+                    <div class="contact-info-details-information mt-3">
+                        <h4 class="text-center ">Phone</h4>
+                        <p class="text-center f-14">07971273936</p>
+                    </div>
+                </div>
+                <div class="contact-info-details p-2 shadow stander-border-radius">
+                    <div class="d-flex justify-content-center mt-0">
+                       <img src="/files/contact_image.png" style="height:65px; width:65px;"/>
+                    </div>
+                    <div class="contact-info-details-information mt-3">
+                        <h4 class="text-center">Email</h4>
+                        <p class="text-center f-14">info@zpcl.in</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contact-form shadow stander-border-radius">
+            <h2 class="text-center orange-text mt-sm-0 mt-md-5">Get In Touch </h2>
+            <form action="#" method="post" class="mt-4" style="padding-left: 70px; padding-right: 70px;">
+                <input type="text" class="input" name="name" placeholder="Your Name">
+                <input type="email" class="input" name="email" placeholder="Your Email address">
+                <input type="text" class="input" name="subject" placeholder="Your Subject">
+                <textarea name="msg" class="input" id="msg" placeholder="Your Message"></textarea>
+                <div class="btns-box">
+                    <button name="submit" type="submit" value="Send" >Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
