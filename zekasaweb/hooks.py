@@ -166,6 +166,10 @@ user_data_fields = [
 		"doctype": "{doctype_4}"
 	}
 ]
+web_include_js = [
+	"/assets/js/zekasa-product-listening.min.js",
+]
+
 
 # Authentication and authorization
 # --------------------------------

@@ -1,3 +1,4 @@
+
 /* Mega MEnu  Nav */
 
 function zekasaNavDropdowns(e) {
@@ -942,6 +943,21 @@ Array.from(document.querySelectorAll('.grid__item-img')).forEach((el) => {
 });
 $(document).ready(function () {
     var scrollController = new ScrollMagic.Controller();
+    $("section").each(function(i) {
+        var inner = $(this).find(".inner");
+        var outer = $(this).find(".outer");
+        var tl = new TimelineMax();
+        
+        tl.from(outer, 0.25, { scaleX: 0 });
+        tl.from(inner, 0.65, { yPercent: 100, ease: Back.easeOut });
+        
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          triggerHook: 0.85
+        })
+          .setTween(tl)
+          .addTo(scrollController);
+    })
     $(".fadeinright").each(function () {
 
         new ScrollMagic.Scene({
@@ -968,25 +984,50 @@ $(document).ready(function () {
             }))
             .addTo(scrollController)
     })
+    $(".fadeinup").each(function() {
+        new ScrollMagic.Scene({
+                triggerElement: this,
+                triggerHook: 0.8
+            })
+            .setTween(TweenMax.from(this, 0.9, {
+                y: 50,
+                opacity: 0,
+                ease: Power1.easeIn
+            }))
+            .addTo(scrollController)
+    })
+    $(".fadeindown").each(function() {
+         new ScrollMagic.Scene({
+                triggerElement: this,
+                triggerHook: 0.8
+            })
+            .setTween(TweenMax.from(this, 0.9, {
+                y: -50,
+                opacity: 0,
+                ease: Power1.easeIn
+            }))
+            .addTo(scrollController)
+    })
+
    
         $('.product-slider').owlCarousel({
-            items:4,
-            // loop:true,
-            // margin:10,
-            // // nav:true,
-            // autoplay:true,
-            // autoplayTimeout:1500,
-            // autoplayHoverPause:true
             loop:true,
             margin:20,
             nav:false,
             dots:true,
             autoplay: true, 
-            smartSpeed: 1500
-            // autoplay: true,
-            // slideTransition: 'linear',
-            // autoplayTimeout: 1500,
-            // autoplaySpeed: 1000,
-            // autoplayHoverPause: true,
+            smartSpeed: 1500,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:2
+                },
+                1000:{
+                    items:4
+                }
+            }
         });
 })
+
