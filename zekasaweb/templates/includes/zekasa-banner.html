@@ -24,10 +24,8 @@
     </div>
 </div>
 {% endif %} -->
-<div class="banner-allPage position-relative">
-    <!-- <img src="{{image or '/files/bg1.jpg'}}"> -->
-    <img src="/files/bg1.jpg">
-    <canvas class="smoke-canvas smoke-canvas-banner" width="1070" height="722"></canvas>
+<div class="banner-allPage position-relative" style="background: url(/files/test.svg); background-position: top center; height: 50vh; background-size: cover;">
+    <!-- <canvas class="smoke-canvas smoke-canvas-banner" width="1070" height="722"></canvas> -->
     <div class="canvas-text canvas-text-banner">
         {% if doctype == 'Website Item' %}<h1 class="orange-text banner-title"> {{ title }}</h1>{% else %}<h1 class="orange-text text-medium banner-title"> {{ title }}</h1> {% endif %}
         <div class="page-breadcrumbs">

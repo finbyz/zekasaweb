@@ -268,6 +268,7 @@ $(document).ready(() => {
         $('#zekasa_logo').removeClass('logo_width');
       
     }
+
     $(window).bind('load scroll', function () {
         var scroll = $(window).scrollTop();
         if (scroll > 300) {
@@ -283,12 +284,13 @@ $(document).ready(() => {
         else {
             $(".zekasaNav").removeClass("active");
             $('.zekasaNav').removeClass('animated');
-            var oldsrc = "/files/zekasa-white-logo.png";
-            $('#zekasa_logo').attr("src", oldsrc);
+            // var oldsrc = "/files/zekasa-white-logo.png";
+            // $('#zekasa_logo').attr("src", oldsrc);
             $('#zekasa_logo').css("width", "auto");
             $('#zekasa_logo').addClass('logo_width');
         }
     })
+  
 
     /* canvas */
     /* smoke background */

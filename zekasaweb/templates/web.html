@@ -27,7 +27,6 @@
 		</div>
 
 		<div class="page_content">
-            
 			{% if name != "index" %}
             {% include "templates/includes/zekasa-banner.html" %}
             {% endif %}
@@ -39,6 +38,7 @@
 		<div class="page-footer">
 			{%- block page_footer -%}{%- endblock -%}
 		</div>
+		{% include 'templates/includes/form/inquiry_form.html' %}
 	</main>
 	{% endblock %}
 </div>
